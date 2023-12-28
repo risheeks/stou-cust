@@ -1,0 +1,48 @@
+.home-component {
+    height: 600px;
+
+    background-image: url('../../assets/images/home-background2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-element {
+    padding-top: 15%;
+}
+
+.home-title {
+    text-align: center;
+    color: #ff0000;
+}
+
+.address-bar {
+    text-align: center;
+}
+
+.address-input {
+    margin-top: 1%;
+    border-radius: 100px;
+    height: 50px;
+    width: 300px;
+    border-style: none;
+}
+
+.address-input:focus {
+    outline: none;
+}
+
+.address-button {
+    width: 50px;
+    height: 50px;
+    background-color: #ff0000;
+    color: white;
+    font-size: large;
+    border-radius: 50px;
+    border-style: none;
+}
+
+.button-image {
+    width: 25px;
+    /* height: 25px; */
+
+}
