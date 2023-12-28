@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { CookService } from '../service/cook.service';
+import { CustomerService } from '../service/customer.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   login!: FormGroup;
-  cook: any;
+  customer: any;
 
-  constructor(private toastr: ToastrService, private cookService: CookService, private router: Router) {
+  constructor(private toastr: ToastrService, private customerService: CustomerService, private router: Router) {
     sessionStorage.clear();
   }
 
@@ -27,10 +27,10 @@ export class LoginComponent {
   onSubmit() {
 
     if(this.login.valid) {
-      this.cookService.getCookByUsername(this.login.value.username).subscribe((cook: any) => {
-        this.cook = cook[0];
-        if(this.cook.password == this.login.value.password) {
-          this.cookService.login(this.cook);
+      this.customerService.getCustomerByUsername(this.login.value.username).subscribe((customer: any) => {
+        this.customer = customer[0];
+        if(this.customer.password == this.login.value.password) {
+          this.customerService.login(this.customer);
           this.router.navigate(['dashboard']);
         } else {
           this.toastr.error('Invalid Credentials');

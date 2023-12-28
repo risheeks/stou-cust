@@ -1,0 +1,21 @@
+:host {
+    position: sticky;
+    top: 0%;
+}
+
+a {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbar {
+    background-color: #ff0000;
+}
+
+.nav-item {
+    color: white;
+}
+
+.nav-item:hover {
+    opacity: 70%;
+}
