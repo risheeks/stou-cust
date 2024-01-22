@@ -1,5 +1,67 @@
 {
   "customers": [
 
+  ],
+  "foods": [
+    {
+      "image": "",
+      "name": "test",
+      "description": "test",
+      "price": "1",
+      "calories": "1",
+      "cuisines": "test",
+      "allergens": "test",
+      "isActive": true,
+      "cook": "sid",
+      "id": 3
+    },
+    {
+      "image": "",
+      "name": "test2",
+      "description": "test2",
+      "price": "2",
+      "calories": "2",
+      "cuisines": "test2",
+      "allergens": "test2",
+      "isActive": true,
+      "cook": "sid",
+      "id": 4
+    },
+    {
+      "image": "",
+      "name": "test1",
+      "description": "test1",
+      "price": "1",
+      "calories": "1",
+      "cuisines": "test1",
+      "allergens": "test1",
+      "isActive": true,
+      "cook": "risheeks",
+      "id": 6
+    },
+    {
+      "image": "",
+      "name": "test2",
+      "description": "test2",
+      "price": "2",
+      "calories": "2",
+      "cuisines": "",
+      "allergens": "",
+      "isActive": true,
+      "cook": "risheeks",
+      "id": 7
+    },
+    {
+      "image": "",
+      "name": "test3",
+      "description": "uehgiweuhavvdsfvsdfvbsdfbsdfbsbsfbsdbfv ffgsdfgsdfgs",
+      "price": "3",
+      "calories": "3",
+      "cuisines": "fa",
+      "allergens": "ava",
+      "isActive": true,
+      "cook": "sid",
+      "id": 8
+    }
   ]
 }
