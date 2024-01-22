@@ -1,0 +1,9 @@
+<div class="food-filter">
+  <h2 style="color: #ff0000;">Filter</h2>
+  <br>
+  <mat-label>Max Price</mat-label>
+  &nbsp;
+  <mat-slider min="20" max="2000" step="20" (value)="this.data.price" #matslider showTickMarks discrete (change)="valueChanged($event)">
+    <input matSliderThumb>
+  </mat-slider>
+</div> 
