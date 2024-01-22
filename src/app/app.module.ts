@@ -16,6 +16,13 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FoodListComponent } from './food-list/food-list.component';
+import { FoodComponent } from './food/food.component';
+import { FoodDetailsComponent } from './food-details/food-details.component';
+import { FoodService } from './service/food.service';
+import { FoodFilterComponent } from './food-filter/food-filter.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './service/cart.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterComponent,
     ErrorComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    FoodListComponent,
+    FoodComponent,
+    FoodDetailsComponent,
+    FoodFilterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +51,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ToastrModule.forRoot()
   ],
   providers: [
-    CustomerService
+    CustomerService,
+    FoodService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })
