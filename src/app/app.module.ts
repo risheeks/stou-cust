@@ -21,6 +21,8 @@ import { FoodComponent } from './food/food.component';
 import { FoodDetailsComponent } from './food-details/food-details.component';
 import { FoodService } from './service/food.service';
 import { FoodFilterComponent } from './food-filter/food-filter.component';
+import { CartComponent } from './cart/cart.component';
+import { CartService } from './service/cart.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { FoodFilterComponent } from './food-filter/food-filter.component';
     FoodListComponent,
     FoodComponent,
     FoodDetailsComponent,
-    FoodFilterComponent
+    FoodFilterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { FoodFilterComponent } from './food-filter/food-filter.component';
   ],
   providers: [
     CustomerService,
-    FoodService
+    FoodService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

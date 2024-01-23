@@ -19,3 +19,24 @@ a {
 .nav-item:hover {
     opacity: 70%;
 }
+
+div {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 12px;
+  }

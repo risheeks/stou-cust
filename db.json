@@ -1,6 +1,22 @@
 {
   "customers": [
-
+    {
+      "username": "sid",
+      "firstName": "sid",
+      "lastName": "patel",
+      "description": "cricket",
+      "image": "",
+      "address": "402 Northwestern Ave",
+      "pincode": "47906",
+      "rating": "",
+      "phone": "7658372312",
+      "email": "sid.patel@gmail.com",
+      "password": "sid",
+      "specialty": [],
+      "status": 0,
+      "orderHistory": [],
+      "id": 3
+    }
   ],
   "foods": [
     {
