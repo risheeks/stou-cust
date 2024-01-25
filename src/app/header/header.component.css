@@ -10,6 +10,7 @@ a {
 
 .navbar {
     background-color: #ff0000;
+    z-index: 1000;
 }
 
 .nav-item {

@@ -1,5 +1,11 @@
-<div *ngFor="let food of foodList" class="foodList">
-    <h3>{{ food.name }}</h3>
-    <p>{{ food.description }}</p>
-    <p>Price: ${{ food.price }}</p>
-</div>
+<div class="food-listing">
+    <mat-card *ngFor="let foodItem of foodList" class="food-card">
+      <img mat-card-image [src]="foodItem.imageUrl" alt="{{ foodItem.name }}">
+      <mat-card-content class="food-details">
+        <h3>{{ foodItem.name }}</h3>
+        <p class="description">{{ foodItem.description }}</p>
+        <p class="price">{{ foodItem.price | currency:'INR':'symbol':'1.2-2' }}</p>
+        <button mat-raised-button color="primary" (click)="addToCart(foodItem)">Add to Cart</button>
+      </mat-card-content>
+    </mat-card>
+</div> 

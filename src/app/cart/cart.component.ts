@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
-    this.items = [{name:'test name', price:'100'},{name:'test name2', price:'110'}];
+    // this.items = [{name:'test name', price:'100'},{name:'test name2', price:'110'}];
     this.total = this.getTotal();
     console.log(this.items.length);
   }
@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
   clearCart(): void {
     this.cartService.clearCart();
     this.items = [];
+    this.total = this.getTotal();
   }
 
   getTotal = (): number => {
