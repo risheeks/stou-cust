@@ -1,26 +1,30 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Customer, Role } from '../model/customer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  apiurl='http://localhost:3000/customers';
+  apiurl='http://localhost:8080/user';
   @Output() getIsLoggedIn: EventEmitter<any> = new EventEmitter();
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient) {}
 
-  }
-
-  registerUser(customer: any) {
+  registerUser(customer: Customer) {
     return this.http.post(this.apiurl,customer)
   }
 
-  getCustomerByUsername (username: String): Observable<any> {
+  getCustomerByUsername (username: String): Observable<Customer> {
     return this.http.get(this.apiurl + '?username=' + username);
   }
 
-  login(customer: any): Boolean {
+  authenticateLogin (customer: Customer): Observable<Boolean> {
+    customer.role = new Role();
+    return this.http.post<Boolean>(this.apiurl + '/authenticate', customer);
+  }
+
+  login(customer: Customer): Boolean {
     if(sessionStorage.getItem('customer')!=null) {
       return false;
     } else {
@@ -46,11 +50,8 @@ export class CustomerService {
     return sessionStorage.getItem('customer')!=null;
   }
 
-  getLoggedInCook(): any {
-    if (sessionStorage.getItem('customer'))
-      return JSON.parse(sessionStorage.getItem('customer') || "");
-    else 
-      return "";
+  getLoggedInCook(): Customer {
+    return JSON.parse(sessionStorage.getItem('customer') || "");
   }
 
 }

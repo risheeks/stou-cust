@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FoodService } from '../service/food.service';
 import { CartService } from '../service/cart.service';
+import { Food } from '../model/food';
 
 @Component({
   selector: 'app-food-list',
@@ -9,7 +10,7 @@ import { CartService } from '../service/cart.service';
 })
 export class FoodListComponent {
   
-  foodList: any = [];
+  foodList: Food[] = [];
 
   constructor(private foodService: FoodService, private cartService: CartService) {}
 
@@ -20,7 +21,7 @@ export class FoodListComponent {
     });
   }
 
-  addToCart(foodItem: any) {
+  addToCart(foodItem: Food) {
     this.cartService.addToCart(foodItem);
   }
 

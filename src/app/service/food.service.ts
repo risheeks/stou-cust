@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Food } from '../model/food';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodService {
 
-  apiurl='http://localhost:3000/foods';
+  apiurl='http://localhost:8080/food';
   constructor(private http:HttpClient) { }
 
   getAllFood(): any {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
 import { concatMapTo } from 'rxjs';
+import { Food } from '../model/food';
 
 @Component({
   selector: 'app-cart',
@@ -8,7 +9,7 @@ import { concatMapTo } from 'rxjs';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  items: any[] = [];
+  items: Food[] = [];
   total: number = 0;
   constructor(private cartService: CartService) {}
 
@@ -29,7 +30,7 @@ export class CartComponent implements OnInit {
     let total: number = 0;
     console.log(this.items);
     this.items.forEach((item) => {
-      total += +(item.price);
+      total = total + (item.price ? item.price : 0);
     });
     return total;
   };
