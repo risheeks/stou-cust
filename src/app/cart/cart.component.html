@@ -2,9 +2,9 @@
   <h2>Your Cart</h2>
   <ul class="cart-items" *ngIf="items.length > 0">
       <li class="item" *ngFor="let item of items">
-          <img src={{item.image}} alt="Product 1">
+          <img src={{item.picture}} alt="Product 1">
           <div class="item-info">
-              <h3>{{item.name}}</h3>
+              <h3>{{item.title}}</h3>
               <p>{{item.price}}</p>
               <button (click)="clearCart()" class="remove-btn">Remove</button>
           </div>

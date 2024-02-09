@@ -12,14 +12,16 @@ export class CustomerService {
   constructor(private http:HttpClient) {}
 
   registerUser(customer: Customer) {
+    customer.role = new Role();
     return this.http.post(this.apiurl,customer)
   }
 
-  getCustomerByUsername (username: String): Observable<Customer> {
-    return this.http.get(this.apiurl + '?username=' + username);
+  getCustomerByUsername (email: String): Observable<Customer> {
+    return this.http.get(this.apiurl + '/' + email + '/1');
   }
 
   authenticateLogin (customer: Customer): Observable<Boolean> {
+    console.log(customer);
     customer.role = new Role();
     return this.http.post<Boolean>(this.apiurl + '/authenticate', customer);
   }
