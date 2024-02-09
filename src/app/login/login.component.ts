@@ -20,7 +20,7 @@ export class LoginComponent {
 
   ngOnInit() {
     this.login = new FormGroup({
-      username: new FormControl("", Validators.required),
+      email: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required)
     });
   }
@@ -30,7 +30,7 @@ export class LoginComponent {
     if(this.login.valid) {
       this.customerService.authenticateLogin(this.login.value).subscribe((validLogin: Boolean) => {
         if(validLogin) {
-          let customer = this.customerService.getCustomerByUsername(this.login.value.email).subscribe(customer => {
+          let cook = this.customerService.getCustomerByUsername(this.login.value.email).subscribe(customer => {
             this.customerService.login(customer);
             this.router.navigate(['dashboard']);
           });

@@ -1,0 +1,21 @@
+:host {
+    margin: 10%;
+}
+
+mat-form-field {
+    margin-left: 25%;
+    width: 50%;
+}
+
+.formButtons {
+    margin-left: 25%;
+    width: 50%;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    width: 50%;
+}
