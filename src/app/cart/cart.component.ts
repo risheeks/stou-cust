@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
 import { concatMapTo } from 'rxjs';
 import { Food } from '../model/food';
+import { OrderFood } from '../model/order-food';
+import { FoodService } from '../service/food.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,13 +13,19 @@ import { Food } from '../model/food';
 export class CartComponent implements OnInit {
   items: Food[] = [];
   total: number = 0;
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private foodService: FoodService) {}
 
   ngOnInit(): void {
-    this.items = this.cartService.getItems();
-    // this.items = [{name:'test name', price:'100'},{name:'test name2', price:'110'}];
-    this.total = this.getTotal();
-    console.log(this.items.length);
+    this.items = [];
+    let orderItems: OrderFood[] = this.cartService.getItems();
+    this.total = 0;
+    orderItems.forEach(item => {
+      this.foodService.getFoodById(item.foodId).subscribe((food: Food) => {
+        food.quantity = item.quantity;
+        this.items.push(food);
+        this.total = this.total + food.price * food.quantity;
+      });
+    });
   }
 
   clearCart(): void {
@@ -26,11 +34,19 @@ export class CartComponent implements OnInit {
     this.total = this.getTotal();
   }
 
+  deleteItem(food: Food): void {
+    let orderFood: OrderFood = new OrderFood();
+    orderFood.foodId = (food.foodId ? food.foodId : -1);
+    orderFood.quantity = (food.quantity ? food.quantity : -1);
+    this.cartService.removeItem(orderFood);
+    this.ngOnInit();
+    
+  }
+
   getTotal = (): number => {
     let total: number = 0;
-    console.log(this.items);
     this.items.forEach((item) => {
-      total = total + (item.price ? item.price : 0);
+      total = total + item.price * item.quantity;
     });
     return total;
   };

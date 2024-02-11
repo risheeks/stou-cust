@@ -1,6 +1,8 @@
 <div class="food-listing">
     <mat-card *ngFor="let foodItem of foodList" class="food-card">
-      <img mat-card-image [src]="foodItem.picture" alt="{{ foodItem.title }}">
+      <div class="img">
+        <img mat-card-image src="../../assets/images/sampleFoodImage.jpg" alt="{{ foodItem.title }}">
+      </div>
       <mat-card-content class="food-details">
         <h3>{{ foodItem.title }}</h3>
         <p class="description">{{ foodItem.description }}</p>

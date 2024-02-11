@@ -15,7 +15,7 @@ export class FoodListComponent {
   constructor(private foodService: FoodService, private cartService: CartService) {}
 
   ngOnInit() {
-    this.foodList = this.foodService.getAllFood().subscribe((foodsList: any) => {
+    this.foodService.getAllFood().subscribe((foodsList: any) => {
       this.foodList = foodsList;
       // console.log(this.foodList);
     });

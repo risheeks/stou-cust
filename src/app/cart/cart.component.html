@@ -2,12 +2,15 @@
   <h2>Your Cart</h2>
   <ul class="cart-items" *ngIf="items.length > 0">
       <li class="item" *ngFor="let item of items">
-          <img src={{item.picture}} alt="Product 1">
+          <img  src="../../assets/images/sampleFoodImage.jpg" alt="Product image">
           <div class="item-info">
               <h3>{{item.title}}</h3>
               <p>{{item.price}}</p>
-              <button (click)="clearCart()" class="remove-btn">Remove</button>
+              <button (click)="deleteItem(item)" class="remove-btn">Remove</button>
           </div>
+          <div class="item-info">
+            <p>Quantity: {{item.quantity}}</p>
+        </div>
       </li>
   </ul>
   <p *ngIf="items.length === 0">Your cart is empty.</p>
@@ -16,15 +19,3 @@
       <button class="checkout-btn">Checkout</button>
   </div>
 </div>
-<!-- <div *ngIf="items.length > 0">
-    <h2>Your Cart</h2>
-    <ul>
-      <li *ngFor="let item of items">
-        {{ item.name }} - ${{ item.price }}
-      </li>
-    </ul>
-    <button (click)="clearCart()">Clear Cart</button>
-  </div>
-  <div *ngIf="items.length === 0">
-    <p>Your cart is empty.</p>
-  </div> -->
