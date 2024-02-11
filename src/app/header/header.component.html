@@ -26,9 +26,9 @@
             <a class="nav-link active" aria-current="page" routerLink="/profile" style="color: white;">Profile</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/cart" style="color: white;">
+              <a class="nav-link active" aria-current="page" style="color: white;">
                 <div (click)="toggleCart()" class="nav">
-                  <img src="../../assets/icons/cart.png" alt="Cart Icon"/>&nbsp;Cart
+                  <mat-icon aria-hidden="false" matBadge={{cartSize}} matBadgeColor="accent">shopping_cart</mat-icon>
                 </div>
               </a>
           </li>

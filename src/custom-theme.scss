@@ -42,11 +42,45 @@ $md-stouprimarypallete: (
     )
 );
 
+$md-stousecondarypallete: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #8c9eff,
+    A200 : #536dfe,
+    A400 : #3d5afe,
+    A700 : #304ffe,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #ffffff,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $stou-new-primary: mat.define-palette($md-stouprimarypallete);//mat.define-palette(mat.$red-palette);
-$stou-new-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// $stou-new-secondary: mat.define-palette($md-stousecondarypallete);
+$stou-new-accent: mat.define-palette($md-stousecondarypallete);//mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $stou-new-warn: mat.define-palette(mat.$red-palette);
@@ -57,7 +91,7 @@ $stou-new-theme: mat.define-light-theme((
   color: (
     primary: $stou-new-primary,
     accent: $stou-new-accent,
-    warn: $stou-new-warn,
+    warn: $stou-new-warn  
   )
 ));
 

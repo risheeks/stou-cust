@@ -11,7 +11,12 @@ export class FoodService {
   apiurl='http://localhost:8080/food';
   constructor(private http:HttpClient) { }
 
-  getAllFood(): any {
+  getAllFood(): Observable<any> {
     return this.http.get(this.apiurl);
   }
+
+  getFoodById(foodId: number): Observable<any> {
+    return this.http.get(this.apiurl + "/" + foodId);
+  }
+
 }

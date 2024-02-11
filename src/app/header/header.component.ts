@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../service/cart.service';
 import { CartComponent } from '../cart/cart.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,9 +17,13 @@ import { CartComponent } from '../cart/cart.component';
 })
 export class HeaderComponent {
   loggedIn?: boolean;
+  cartSize?: any;
 
   constructor(private customerService: CustomerService, private router: Router, private toastr: ToastrService, private cartService: CartService, private dialog: MatDialog) {
     this.loggedIn = false;
+    this.cartService.getCartItems().subscribe(size => 
+      this.cartSize = size
+    );
   }
 
   ngOnInit() {
@@ -36,7 +41,7 @@ export class HeaderComponent {
 
   toggleCart() {
     const dialogRef = this.dialog.open(CartComponent, {
-      width: '300px'
+      width: '600px'
     });
   
     dialogRef.afterClosed().subscribe(result => {
