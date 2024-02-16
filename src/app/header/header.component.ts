@@ -44,9 +44,7 @@ export class HeaderComponent {
       width: '600px'
     });
   
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The cart pop-up was closed');
-    });
+    dialogRef.afterClosed().subscribe();
   }
   
 }
