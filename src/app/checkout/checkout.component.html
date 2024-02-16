@@ -23,9 +23,9 @@
     </div>
     <div class="billing-details">
         <mat-card class="billing-component">
-            <mat-card-header><h3>Paypal</h3></mat-card-header>
+            <mat-card-header><h3>Billing Details</h3></mat-card-header>
             <mat-card-content>
-              <app-payment></app-payment>
+              <ngx-paypal [config]="payPalConfig"></ngx-paypal>
             </mat-card-content>
         </mat-card>
         
