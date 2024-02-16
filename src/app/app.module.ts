@@ -24,8 +24,8 @@ import { FoodFilterComponent } from './food-filter/food-filter.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './service/cart.service';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { PaymentComponent } from './payment/payment.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { OrderService } from './service/order.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,6 @@ import { NgxPayPalModule } from 'ngx-paypal';
     FoodFilterComponent,
     CartComponent,
     CheckoutComponent,
-    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +58,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
   providers: [
     CustomerService,
     FoodService,
-    CartService
+    CartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
