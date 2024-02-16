@@ -13,6 +13,10 @@ export class CustomerService {
 
   registerUser(customer: Customer) {
     customer.role = new Role();
+    customer.banned = false;
+    customer.numRatings = 0;
+    customer.numViews = 0;
+    customer.rating = 0;
     return this.http.post(this.apiurl,customer)
   }
 
@@ -21,7 +25,7 @@ export class CustomerService {
   }
 
   authenticateLogin (customer: Customer): Observable<Boolean> {
-    console.log(customer);
+    // console.log(customer);
     customer.role = new Role();
     return this.http.post<Boolean>(this.apiurl + '/authenticate', customer);
   }

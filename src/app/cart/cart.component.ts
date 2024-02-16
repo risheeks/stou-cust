@@ -4,6 +4,8 @@ import { concatMapTo } from 'rxjs';
 import { Food } from '../model/food';
 import { OrderFood } from '../model/order-food';
 import { FoodService } from '../service/food.service';
+import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +15,7 @@ import { FoodService } from '../service/food.service';
 export class CartComponent implements OnInit {
   items: Food[] = [];
   total: number = 0;
-  constructor(private cartService: CartService, private foodService: FoodService) {}
+  constructor(private cartService: CartService, private foodService: FoodService, private router: Router, private dialogRef: MatDialogRef<CartComponent>) {}
 
   ngOnInit(): void {
     this.items = [];
@@ -26,6 +28,11 @@ export class CartComponent implements OnInit {
         this.total = this.total + food.price * food.quantity;
       });
     });
+  }
+
+  checkout() {
+    this.dialogRef.close();
+    this.router.navigate(['checkout', this.items]);
   }
 
   clearCart(): void {

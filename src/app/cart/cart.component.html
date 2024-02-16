@@ -16,6 +16,6 @@
   <p *ngIf="items.length === 0">Your cart is empty.</p>
   <div class="cart-total">
       <p>Total: ${{this.total}}</p>
-      <button class="checkout-btn">Checkout</button>
+      <button (click)="checkout()" class="checkout-btn">Checkout</button>
   </div>
 </div>
