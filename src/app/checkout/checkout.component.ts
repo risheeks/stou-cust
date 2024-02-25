@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { OrderFood } from '../model/order-food';
 import { CartService } from '../service/cart.service';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { OrderService } from '../service/order.service';
+import { Food } from '../model/food';
 
 @Component({
   selector: 'app-checkout',
@@ -9,15 +10,18 @@ import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
-  items: OrderFood[] = [];
+  items: Food[] = [];
   public payPalConfig ? : IPayPalConfig;
 
   total!: number;
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private orderService: OrderService) {}
 
   ngOnInit() {
-    this.items = this.cartService.getItems();
-    
+    this.items = this.cartService.getFoods();
+    this.total = this.cartService.getTotal();
+
+    // this.orderService.sendOrder(this.items);
+    this.initConfig();
   }
 
   private initConfig(): void {
@@ -56,6 +60,7 @@ export class CheckoutComponent {
         onClientAuthorization: (data) => {
             console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
             // this.showSuccess = true;
+            this.onAuthorization();
         },
         onCancel: (data, actions) => {
             console.log('OnCancel', data, actions);
@@ -71,5 +76,9 @@ export class CheckoutComponent {
             // this.resetStatus();
         }
     };
-}
+  }
+
+  onAuthorization() {
+    this.orderService.sendOrder(this.items);
+  }
 }

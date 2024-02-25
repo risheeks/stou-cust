@@ -11,20 +11,21 @@ export class CustomerService {
   @Output() getIsLoggedIn: EventEmitter<any> = new EventEmitter();
   constructor(private http:HttpClient) {}
 
-  registerUser(customer: Customer) {
+  registerUser(customer: any) {
     customer.role = new Role();
     customer.banned = false;
     customer.numRatings = 0;
     customer.numViews = 0;
     customer.rating = 0;
-    return this.http.post(this.apiurl,customer)
+    return this.http.post(this.apiurl,customer);
+    
   }
 
   getCustomerByUsername (email: String): Observable<Customer> {
     return this.http.get(this.apiurl + '/' + email + '/1');
   }
 
-  authenticateLogin (customer: Customer): Observable<Boolean> {
+  authenticateLogin (customer: any): Observable<Boolean> {
     // console.log(customer);
     customer.role = new Role();
     return this.http.post<Boolean>(this.apiurl + '/authenticate', customer);
@@ -56,7 +57,7 @@ export class CustomerService {
     return sessionStorage.getItem('customer')!=null;
   }
 
-  getLoggedInCook(): Customer {
+  getLoggedInCustomer(): Customer {
     return JSON.parse(sessionStorage.getItem('customer') || "");
   }
 
