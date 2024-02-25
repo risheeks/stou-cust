@@ -26,6 +26,7 @@ import { CartService } from './service/cart.service';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { OrderService } from './service/order.service';
+import { OrderTrackComponent } from './order-track/order-track.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { OrderService } from './service/order.service';
     FoodFilterComponent,
     CartComponent,
     CheckoutComponent,
+    OrderTrackComponent,
   ],
   imports: [
     BrowserModule,

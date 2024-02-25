@@ -58,6 +58,10 @@ export class CartService {
     // console.log(this.items);
   }
 
+  getFoods(): Food[] {
+    return this.foods;
+  }
+
   getItems(): OrderFood[] {
     return this.items;
   }
