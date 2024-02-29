@@ -3,6 +3,7 @@ import { CartService } from '../service/cart.service';
 import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
 import { OrderService } from '../service/order.service';
 import { Food } from '../model/food';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -14,7 +15,7 @@ export class CheckoutComponent {
   public payPalConfig ? : IPayPalConfig;
 
   total!: number;
-  constructor(private cartService: CartService, private orderService: OrderService) {}
+  constructor(private cartService: CartService, private orderService: OrderService, private router: Router) {}
 
   ngOnInit() {
     this.items = this.cartService.getFoods();
@@ -79,6 +80,8 @@ export class CheckoutComponent {
   }
 
   onAuthorization() {
+    this.router.navigate(['tracking']);
     this.orderService.sendOrder(this.items);
+    
   }
 }
