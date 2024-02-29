@@ -18,7 +18,11 @@ export class OrderService {
     order.cookEmail = orderFoods[0].cookEmail;
     order.customerEmail = this.customerService.getLoggedInCustomer().email;
     order.deliveryAddress = "";
-    order.items = orderFoods; 
+    let foods = new Map<Food, Number>();
+    orderFoods.forEach(food => {
+      foods.set(food, food.quantity);
+    });
+    order.foods = foods; 
     console.log(order);
     return this.http.post(this.apiurl, order).subscribe();
   }
